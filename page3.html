@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NPTR Combined Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    .nav-Img-Size { width: 50px; height: 57.5px; transition: all 0.15s; }
+    .t-bt {
+      color: #f7f7f7; background-color: #292b2c;
+      transition: all 0.35s;
+      border: 2.5px solid #f7f7f7;
+    }
+    .t-bt:hover {
+      color: #292b2c; background-color: #f7f7f7;
+      border-color: #292b2c; cursor: pointer;
+    }
+    .text-Transition {
+      color: #f7f7f7; transition: all 0.15s;
+    }
+    .text-Transition:hover {
+      color: #5bc0de;
+      text-decoration: overline underline;
+      text-decoration-color: #5bc0de;
+      text-decoration-thickness: 2px;
+    }
+    @media print {
+      body { visibility: hidden; background-color: black; }
+      #tic { visibility: visible; position: absolute; left: 160px; top: 160px; }
+    }
+    body { font-family: Arial, sans-serif; }
+  </style>
+</head>
+<body class="bg-secondary bg-gradient text-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-sm bg-dark bg-opacity-75 sticky-top border-bottom border-3 border-info-subtle">
+  <div class="container-fluid mt-1 mb-1">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item link">
+        <a href="#home"><img src="NPTRW.png" class="nav-Img-Size navbar-brand"></a>
+      </li>
+      <li class="nav-item m-2"><a href="#home" class="nav-link fw-bold text-Transition">Home</a></li>
+      <li class="nav-item m-2"><a href="#fare" class="nav-link fw-bold text-Transition">Fare Ticket</a></li>
+      <li class="nav-item m-2"><a href="#schedule" class="nav-link fw-bold text-Transition">Schedule</a></li>
+      <li class="nav-item m-2"><a href="#feedback" class="nav-link fw-bold text-Transition">Feedback & QnA</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="p-5 text-center">
+  <h1 class="bg-light text-info p-2 fw-bold border border-info-subtle">HOME</h1>
+  <p class="mt-3 bg-light text-dark p-3 rounded">Welcome to NPTR (NATIONAL PHILIPPINE TRAIN RAILWAY) Website.<br>Feel free to look around and check about us.<br><br>Get your ticket through website on <b>FARE TICKET</b> section</p>
+</section>
+
+<!-- FARE -->
+<section id="fare" class="bg-dark text-white p-5">
+  <h2 class="text-info text-center mb-4">MRT Ticketing System</h2>
+  <div class="container bg-black bg-opacity-75 p-4 rounded">
+    <label for="fromStation" class="fw-bold">FROM:</label>
+    <select id="fromStation" class="t-bt fw-bold">
+      <option disabled selected>Origin</option>
+      <option value="North Avenue">North Avenue</option>
+      <option value="Quezon Avenue">Quezon Avenue</option>
+      <option value="GMA Kamuning">GMA Kamuning</option>
+      <option value="Cubao-Araneta">Araneta Center-Cubao</option>
+      <option value="Santolan-Annapolis">Santolan-Annapolis</option>
+      <option value="Ortigas">Ortigas</option>
+      <option value="Shaw Boulevard">Shaw Boulevard</option>
+      <option value="Boni">Boni</option>
+      <option value="Guadalupe">Guadalupe</option>
+      <option value="Buendia">Buendia</option>
+      <option value="Ayala">Ayala</option>
+      <option value="Magallanes">Magallanes</option>
+      <option value="Taft Avenue">Taft Avenue</option>
+    </select>
+
+    <label for="toStation" class="fw-bold">TO:</label>
+    <select id="toStation" class="t-bt fw-bold">
+      <option disabled selected>Destination</option>
+      <option value="North Avenue">North Avenue</option>
+      <option value="Quezon Avenue">Quezon Avenue</option>
+      <option value="GMA Kamuning">GMA Kamuning</option>
+      <option value="Cubao-Araneta">Araneta Center-Cubao</option>
+      <option value="Santolan-Annapolis">Santolan-Annapolis</option>
+      <option value="Ortigas">Ortigas</option>
+      <option value="Shaw Boulevard">Shaw Boulevard</option>
+      <option value="Boni">Boni</option>
+      <option value="Guadalupe">Guadalupe</option>
+      <option value="Buendia">Buendia</option>
+      <option value="Ayala">Ayala</option>
+      <option value="Magallanes">Magallanes</option>
+      <option value="Taft Avenue">Taft Avenue</option>
+    </select>
+
+    <button onclick="calculateFare()" class="btn t-bt fw-bold mt-2">Get Fare</button>
+    <div class="ticket-result mt-3" id="ticketResult"></div>
+    <div id="tic" class="text-center mt-4">
+      <img src="TICKET.png" id="ticketer" style="display:none; width:500px; height:auto;" />
+    </div>
+    <button onclick="ticket(); pri();" class="btn t-bt mt-2">Get Ticket</button>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="p-5">
+  <h2 class="bg-light text-info text-center fw-bold p-2">Train Schedule</h2>
+  <div class="container bg-light bg-opacity-75 text-dark p-3 rounded mt-3">
+    <table class="table table-bordered border-3 table-dark table-striped">
+      <tr>
+        <th colspan="2" class="table-light text-dark">SCHEDULE</th>
+        <th colspan="2">NORTH AVENUE</th>
+        <th colspan="2">TAFT AVENUE</th>
+      </tr>
+      <tr><th></th><th></th><th>First Train</th><th>Last Train</th><th>First Train</th><th>Last Train</th></tr>
+      <tr><td colspan="2">Weekdays</td><td>4:36 AM</td><td>9:30 PM</td><td>5:18 AM</td><td>10:11 PM</td></tr>
+      <tr><td colspan="2">Saturdays</td><td>4:37 AM</td><td>9:30 PM</td><td>5:18 AM</td><td>10:08 PM</td></tr>
+      <tr><td colspan="2">Sundays/Holidays</td><td>4:38 AM</td><td>9:30 PM</td><td>5:19 AM</td><td>10:09 PM</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" class="p-5 bg-dark text-white">
+  <h2 class="text-info text-center mb-4">Feedback & QnA</h2>
+  <div class="container bg-light bg-opacity-75 p-4 text-dark rounded">
+    <label class="fs-4 fw-bold">Do you have any Feedback?</label><hr>
+    <div class="row text-center mb-3">
+      <div class="col-2 offset-3"><input type="radio" name="ask"><br><label class="fw-bold">YES</label></div>
+      <div class="col-2"><input type="radio" name="ask"><br><label class="fw-bold">NO</label></div>
+    </div>
+    <textarea class="form-control fw-bold" rows="5" placeholder="Write your feedback..."></textarea>
+    <div class="alert alert-warning mt-3 fw-bold d-none" id="alr">SUBMITTED!<br>Thank you for your response</div>
+    <button onclick="document.getElementById('alr').classList.remove('d-none');" class="btn t-bt mt-2">SUBMIT</button>
+  </div>
+</section>
+
+<script>
+  const fares = {
+    "North Avenue": { "Quezon Avenue": 13, "GMA Kamuning": 13, "Cubao-Araneta": 16 },
+    "Quezon Avenue": { "North Avenue": 13, "GMA Kamuning": 13 },
+    "GMA Kamuning": { "North Avenue": 13, "Quezon Avenue": 13 }
+    // Extend this fare table with complete data as needed
+  };
+
+  function calculateFare() {
+    const from = document.getElementById("fromStation").value;
+    const to = document.getElementById("toStation").value;
+    const fare = (fares[from] && fares[from][to]) || "N/A";
+    document.getElementById("ticketResult").innerText = `Fare from ${from} to ${to}: PHP ${fare}`;
+  }
+
+  function ticket() {
+    const ticket = document.getElementById('ticketer');
+    ticket.style.display = 'block';
+  }
+
+  function pri() {
+    setTimeout(() => window.print(), 1000);
+  }
+</script>
+</body>
+</html>

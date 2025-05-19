@@ -1,0 +1,44 @@
+html{
+	scroll-behavior: smooth;
+}
+.nav-Img-Size{
+	width: 50px;
+	height: 57.5px;
+	transition: all 0.15s;
+}
+.t-bt{
+	color: #f7f7f7;
+	background-color: #292b2c;
+	transition: all 0.35s;
+	border-color: #f7f7f7;
+	border-width: 2.5px;
+}
+.t-bt:hover{
+	color: #292b2c;
+	background-color: #f7f7f7;
+	cursor: pointer;
+	border-color: #292b2c;
+}
+.text-Transition{
+	color: #f7f7f7;
+	transition: all 0.15s;
+}
+.text-Transition:hover{
+	color: #5bc0de;
+	text-decoration: overline underline;
+	text-decoration-color: #5bc0de;
+	text-decoration-thickness: 2px;
+}
+@media print{
+	body{
+		visibility: hidden;
+		background-color: black;
+	}
+	#tic{
+		visibility: visible;
+		position: absolute;
+		left: 160px;
+		top: 160px;
+.rad{
+	font-size: 2em;
+}

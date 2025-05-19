@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fare | National Philippine Train Railway</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="NPTRW.css">
+	<link rel="icon" type="image/x-icon" href="NPTRW.png">
+	    <style>
+        body {
+            background-image: url('https://newsinfo.inquirer.net/files/2017/09/tren14.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container-Fare {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            width: 60%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+        }
+        th {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .ticket-form {
+            margin-top: 20px;
+        }
+        select, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        .ticket-result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+	<!-- Copy -->
+<nav class="navbar navbar-expand-sm bg-dark bg-opacity-75 sticky-top border-bottom border-3 border-info-subtle">
+		<div class="container-fluid mt-1 mb-1">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item link">
+					<a href="index.html">
+						<img src="NPTRW.png" class="nav-Img-Size navbar-brand">
+					</a>
+				</li>
+				<div class="collapse navbar-collapse">
+					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
+						<a href="index.html" class="nav-link fw-bold text-Transition">Home</a>
+					</li>				
+					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
+						<a href="fare.html" class="nav-link fw-bold text-Transition">Fare Ticket</a>
+					</li>				
+					
+					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
+						<a href="sche.html" class="nav-link fw-bold text-Transition">Schedule</a>
+					</li>					
+					<li class="nav-item bg-dark bg-opacity-75 border border-info-subtle m-2">
+						<a href="feedq.html" class="nav-link fw-bold text-Transition">Feedback & QnA</a>
+					</li>
+				</ul>
+				<form class="d-flex">
+					<select id="CLi" class="form-control me-2 fw-bold t-bt text-center" onmouseover="over0()" onmouseout="out0()" onchange="abo0()">
+						<option class="fw-bold bg-secondary text-light text-center" selected disabled value="0">Select</option>
+						<option class="fw-bold text-light text-center p-2 bg-dark" value="1">About MRT 3</option>
+						<option class="fw-bold text-light text-center p-2 bg-dark" value="2">About Train</option>
+						<option class="fw-bold text-light text-center p-2 bg-dark" value="3">About Map</option>
+					</select>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<br>
+
+	<h1 class="p-2 bg-light text-info mt-2 text-center fw-bold border border-info-subtle border-2">HOME</h1>
+	<br>
+    <div class="container container-Fare">
+        <h1 class="fw-bold text-light">MRT Ticketing System</h1>
+        <p class="fw-bold text-light">Select your stations to calculate the fare:</p>
+        <div class="ticket-form">
+            <label for="fromStation" class="fw-bold text-light">FROM:</label>
+            <select id="fromStation" class="t-bt fw-bold">
+            	<option class="fw-bold" disabled selected>Origin</option>
+                <option value="North Avenue" class="fw-bold">North Avenue</option>
+                <option value="Quezon Avenue" class="fw-bold">Quezon Avenue</option>
+                <option value="GMA Kamuning" class="fw-bold">GMA Kamuning</option>
+                <option value="Cubao-Araneta" class="fw-bold">Araneta Center-Cubao</option>
+                <option value="Santolan-Annapolis" class="fw-bold">Santolan-Annapolis</option>
+                <option value="Ortigas" class="fw-bold">Ortigas</option>
+                <option value="Shaw Boulevard" class="fw-bold">Shaw Boulevard</option>
+                <option value="Boni" class="fw-bold">Boni</option>
+                <option value="Guadalupe" class="fw-bold">Guadalupe</option>
+                <option value="Buendia" class="fw-bold">Buendia</option>
+                <option value="Ayala" class="fw-bold">Ayala</option>
+                <option value="Magallanes" class="fw-bold">Magallanes</option>
+                <option value="Taft Avenue" class="fw-bold">Taft Avenue</option>
+            </select>
+            <label for="toStation" class="fw-bold text-light">TO:</label>
+            <select id="toStation" class="fw-bold t-bt">
+            	<option class="fw-bold" disabled selected>Destination</option>
+                <option value="North Avenue" class="fw-bold">North Avenue</option>
+                <option value="Quezon Avenue" class="fw-bold">Quezon Avenue</option>
+                <option value="GMA Kamuning" class="fw-bold">GMA Kamuning</option>
+                <option value="Cubao-Araneta" class="fw-bold">Araneta Center-Cubao</option>
+                <option value="Santolan-Annapolis" class="fw-bold">Santolan-Annapolis</option>
+                <option value="Ortigas" class="fw-bold">Ortigas</option>
+                <option value="Shaw Boulevard" class="fw-bold">Shaw Boulevard</option>
+                <option value="Boni" class="fw-bold">Boni</option>
+                <option value="Guadalupe" class="fw-bold">Guadalupe</option>
+                <option value="Buendia" class="fw-bold">Buendia</option>
+                <option value="Ayala" class="fw-bold">Ayala</option>
+                <option value="Magallanes" class="fw-bold">Magallanes</option>
+                <option value="Taft Avenue" class="fw-bold">Taft Avenue</option>
+            </select>
+            <button onclick="calculateFare()" class="btn t-bt fw-bold">Get Fare</button>
+            <br>
+            <div id="tic">
+            	<img src="" id="ticketer">
+            </div>
+            <br>
+            <button type="button" class="btn t-bt fw-bold" onclick="ticket(); pri();">Get Ticket</button>
+        </div>
+        <div class="ticket-result" id="ticketResult"></div>
+    </div>
+    <br><br>
+	<div class="bg-dark container p-2 fw-bold" id="Abo">
+		<div class="row p-2 text-center">
+			<p id="Fll" class="text-left p-2 col-6 bg-opacity-75"></p>
+			<img class="text-left col-6 p-1" id="MRT">
+		</div>
+		<div class="row p-2 text-center">
+			<img class="text-right col-6 p-1" id="MRT1">
+			<p id="Fll1" class="text-right p-2 col-6"></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function abo0(){
+			let CLi = document.getElementById('CLi').value
+			let MRT = document.getElementById('MRT')
+			let MRT1 = document.getElementById('MRT1')
+			let Fll = document.getElementById('Fll')
+			let Fll1 = document.getElementById('Fll1')
+			let Abo = document.getElementById('Abo')
+			if (CLi == 0){
+				MRT.src = ""
+				MRT1.src = ""
+				Fll.innerHTML = ""
+				Fll1.innerHTML= ""
+			}
+			if (CLi == 1){
+				document.getElementById('Fll').innerHTML = "Manila Metro Rail Transit System (MRTS) commonly known as the MRT, is a rapid transit system that primarily serves Metro Manila, Philippines. Along with the Manila Light Rail Transit System and the Metro Commuter Line of the Philippine National Railways, the system makes up Metro Manila's rail infrastructure. The MRT's 16.9-kilometer-route consists of 1 line and 13 stations. The first and the only line currently in operation, MRT Line 3 is jointly operated by the Metro Rail Transit Corporation, a privately owned company, and the Department of Transportation through a Build-Lease-Transfer agreement. Line 3 was opened in December 1999 and completed in July 2000. Since then, most of the newly proposed rapid rail lines within Metro Manila that are not under the jurisdiction of the Light Rail Transit Authority are associated with the MRT brand. This includes the Metro Manila Subway (Line 9) and the elevated Line 7 which are being built as of January 2023."
+				MRT.src = "MRT.jpg"
+				MRT1.src = ".jpg"
+				document.getElementById('Fll1').innerHTML = ""
+				Fll.style.color = "#292b2c"
+				Fll.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				Fll1.style.color = ""
+				Fll1.style.backgroundColor = ""
+				MRT.style.height = "290"
+				MRT1.style.height = ""
+				Abo.scrollIntoView(true)
+			}
+			if (CLi == 2){
+				document.getElementById('Fll').innerHTML = "The MRTC 3000 class or ČKD Tatra RT8D5M LRV is a first-generation class of high-floor uni-directional light rail vehicles built by Czech tram manufacturer ČKD Tatra. The LRVs are owned by Metro Rail Transit Corporation (MRTC), operated by the Department of Transportation (DOTr) thru DOTr MRT-3, and is currently used on the Manila MRT Line 3. " +
+				    "ČKD Tatra RT8D5M LRVs were the last vehicles made by ČKD Tatra before it was taken over by Siemens."
+				document.getElementById('Fll1').innerHTML = "The MRTC 3100 class or CRRC Dalian 8MLB LRV is the class of second-generation uni-directional light rail vehicles built in China by CNR Dalian, now CRRC Dalian. Since its delivery, most of the trains are still being tested and undergoing final assessments, before being used on regular services on Line 3 of the Manila Metro Rail Transit System. These trains are the first LRVs produced by CNR Dalian, which caused some controversy due to compatibility issues raised by MRTC. The CRRC Dalian 8MLB LRVs are owned by the Philippine government and operated by the Department of Transportation (DOTr)."
+				MRT.src = "3000.jpg"
+				MRT1.src = "3100.jpg"
+				Fll.style.color = "#292b2c"
+				Fll.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				Fll1.style.color = "#292b2c"
+				Fll1.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				MRT.style.height = "280"
+				MRT1.style.height = "280"
+				Abo.scrollIntoView(true)
+			}
+			if (CLi == 3){
+				Fll.innerHTML =
+				"North Avenue <br> Quezon Avenue <br> Kamuning <br> Araneta Center-Cubao <br> Santolan-Annapolis <br> Ortigas <br> Shaw Boulevard <br> Boni <br> Guadalupe <br> Buendia <br> Ayala <br> Magallanes <br> Taft Avenue"
+				Fll1.innerHTML = ""
+				Fll.style.height = ""
+				Fll.style.color = "#292b2c"
+				Fll.style.backgroundColor = "rgba(247, 247, 247, 0.8)"
+				Fll1.style.backgroundColor = ""
+				MRT.src = "Map.png"
+				MRT1. src =""
+				MRT.style.height = "140"
+				Abo.scrollIntoView(true)
+			}
+		}
+		const fares = {
+            "North Avenue": { "Quezon Avenue": 13, "GMA Kamuning": 13, "Araneta Center-Cubao": 16, "Santolan-Annapolis": 16, "Ortigas": 20, "Shaw Boulevard": 20, "Boni": 20, "Guadalupe": 24, "Buendia": 24, "Ayala": 24, "Magallanes": 28, "Taft Avenue": 28 },
+            "Quezon Avenue": { "North Avenue": 13, "GMA Kamuning": 13, "Araneta Center-Cubao": 13, "Santolan-Annapolis": 16, "Ortigas": 16, "Shaw Boulevard": 20, "Boni": 20, "Guadalupe": 20, "Buendia": 24, "Ayala": 24, "Magallanes": 24, "Taft Avenue": 28 },
+            "Gma Kamuning": { "North Avenue": 13, "Quezon Avenue": 13, "Araneta Center-Cubao": 13, "Santolan-Annapolis": 13, "Ortigas": 16, "Shaw Boulevard": 16, "Boni": 20, "Guadalupe": 20, "Buendia": 20, "Ayala": 24, "Magallanes": 24, "Taft Avenue": 24 },
+            "Cubao-Araneta": { "North Avenue": 13, "Quezon Avenue": 13, "Gma Kamuning": 13, "Santolan-Annapolis": 13, "Ortigas": 13, "Shaw Boulevard": 16, "Boni": 16, "Guadalupe": 20, "Buendia": 20, "Ayala": 20, "Magallanes": 24, "Taft Avenue": 24 },
+            "Santolan-Annapolis": { "North Avenue": 16, "Quezon Avenue": 16, "Gma Kamuning": 13, "Ortigas": 13, "Shaw Boulevard": 13, "Boni": 16, "Guadalupe": 16, "Buendia": 20, "Ayala": 20, "Magallanes": 20, "Taft Avenue": 24 },
+            "Ortigas": { "North Avenue": 20, "Quezon Avenue": 16, "Gma Kamuning": 16, "Santolan-Annapolis": 13, "Shaw Boulevard": 13, "Boni": 13, "Guadalupe": 16, "Buendia": 16, "Ayala": 20, "Magallanes": 20, "Taft Avenue": 20 },
+            "Shaw Boulevard": { "North Avenue": 20, "Quezon Avenue": 20, "Gma Kamuning": 16, "Santolan-Annapolis": 13, "Ortigas": 13, "Boni": 13, "Guadalupe": 13, "Buendia": 16, "Ayala": 16, "Magallanes": 20, "Taft Avenue": 20 },
+            "Boni": { "North Avenue": 20, "Quezon Avenue": 20, "Gma Kamuning": 20, "Santolan-Annapolis": 16, "Ortigas": 13, "Shaw Boulevard": 13, "Guadalupe": 13, "Buendia": 13, "Ayala": 16, "Magallanes": 16, "Taft Avenue": 20 },
+            "Guadalupe": { "North Avenue": 24, "Quezon Avenue": 20, "Gma Kamuning": 20, "Santolan-Annapolis": 16, "Ortigas": 16, "Shaw Boulevard": 13, "Boni": 13, "Buendia": 13, "Ayala": 13, "Magallanes": 16, "Taft Avenue": 16 },
+            "Buendia": { "North Avenue": 24, "Quezon Avenue": 24, "Gma Kamuning": 20, "Santolan-Annapolis": 20, "Ortigas": 16, "Shaw Boulevard": 16, "Boni": 13, "Guadalupe": 13, "Ayala": 13, "Magallanes": 13, "Taft Avenue": 16 },
+            "Ayala": { "North Avenue": 24, "Quezon Avenue": 24, "Gma Kamuning": 24, "Santolan-Annapolis": 20, "Ortigas": 20, "Shaw Boulevard": 16, "Boni": 16, "Guadalupe": 13, "Buendia": 13, "Magallanes": 13, "Taft Avenue": 13 },
+            "Magallanes": { "North Avenue": 28, "Quezon Avenue": 24, "Gma Kamuning": 24, "Santolan-Annapolis": 20, "Ortigas": 20, "Shaw Boulevard": 20, "Boni": 16, "Guadalupe": 16, "Buendia": 13, "Ayala": 13, "Taft Avenue": 13 },
+            "Taft Avenue": { "North Avenue": 28, "Quezon Avenue": 28, "Gma Kamuning": 24, "Santolan-Annapolis": 24, "Ortigas": 20, "Shaw Boulevard": 20, "Boni": 20, "Guadalupe": 16, "Buendia": 16, "Ayala": 13, "Magallanes": 13 }
+        };
+        
+        function calculateFare() {
+            const from = document.getElementById("fromStation").value;
+            const to = document.getElementById("toStation").value;
+            let fare = "N/A";
+            
+            if (from in fares && to in fares[from]) {
+                fare = fares[from][to];
+            }
+            
+            document.getElementById("ticketResult").innerText = `Fare from ${from} to ${to}: PHP ${fare}`;
+        }
+        function ticket(){
+        	const ticket = document.getElementById('ticketer')
+        	ticket.src = "TICKET.png"
+        	ticket.style.height = "200px"
+        	ticket.style.width = "360px"
+        }
+        function pri(){
+        	const time = setTimeout(pi, 1000);
+        }
+        function pi(){
+        	window.print()
+        }
+	</script>
+</body>
+</html>
